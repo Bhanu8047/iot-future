@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Appliances</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .addNew{
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+            padding: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0, 0.5);
+            border-radius: 7px;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+        }
+        .form-group label {
+            font-size: 18px;
+            margin-right: 80px;
+        }
+        .form-group input {
+            outline: none;
+            padding: 6px 12px;
+            border-radius: 7px;
+            border-style: solid;
+        }
+        .btn{
+            all: unset;
+            display: flex;
+            justify-content: center;
+            border-radius: 7px;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .save {
+            background-color: rgb(111, 172, 20);
+        }
+    </style>
+</head>
+<body>
+    {{>header}}
+    <form class="addNew" action="/addAppliances" method="POST" autocomplete="off">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="name" required/>
+        </div>
+        <div class="form-group">
+            <label for="watt">Watt:</label>
+            <input type="text" id="watt" name="watt" placeholder="watt" required/>
+        </div>
+        <div class="form-group">
+            <label for="state">state:</label>
+            <input type="text" id="state" name="state" placeholder="state"/>
+        </div>
+        <button style="margin-top: 10px;" class="btn save" type="submit">save</button>
+    </form>
+</body>
+</html>

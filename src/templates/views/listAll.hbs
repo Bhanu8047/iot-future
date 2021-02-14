@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Appliances</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .btn{
+            all: unset;
+            border-radius: 7px;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .delete {
+            background-color: rgb(218, 84, 60);
+        }
+        .open {
+            background-color: rgb(35, 150, 216);
+        }
+    </style>
+</head>
+<body>
+    {{>header}}
+    <div class="appliances">
+        {{#if all}}
+            {{#each all}}
+                <div class="appliance">
+                    <h2>{{this.name}}</h2>
+                    {{#if this.state}}
+                        <p class="switchedOn-rect">on</p>
+                    {{else}}
+                        <p class="switchedOff-rect">off</p>
+                    {{/if}}
+                    <span class="row"><h3>Power: </h3> <em> {{ this.watt }} watt </em></span>
+                    <span class="row"><h3>Consumption: </h3> <em> {{ this.unitsPerHour }} units/hour </em></span>
+                    <span style="justify-content: space-between;" class="row">
+                        <form action="/appliance/{{this.id}}" method="GET">
+                            <button title="open" class="btn open" type="submit">open</button>
+                        </form>
+                        <form action="/deleteAppliance/{{this.id}}" method="POST">
+                            <button title="delete" class="btn delete" type="submit">delete</button>
+                        </form>
+                    </span>
+                    
+                </div>      
+            {{/each}}
+        {{else}}
+            <div class="appliance">
+                <h2>please add an appliance</h2>
+            </div>
+        {{/if}}
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<style>
+    header{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    header h1{ 
+        border-bottom: 2px solid rgb(14, 158, 158);
+    }
+    nav {
+        display: flex;
+        padding: 24px;
+        align-self :flex-start
+    }
+    nav a:link,
+    nav a:visited{
+        text-decoration: none;
+        color: #555;
+        border: 3px solid rgb(14, 158, 158);
+        padding: 6px 12px;
+        margin-right: 20px;
+        border-radius: 7px;
+        font-weight: 500;
+        transition: .5s;
+    }
+
+    nav a:hover,
+    nav a:active{
+        background-color: rgb(14, 158, 158);
+        color: #fff;
+    }
+</style>
+<header>
+    <h1>Automation</h1>
+    <nav>
+        <a href="/">home</a>
+        <a href="/new">add new appliance</a>
+        <a href="/listAll">all appliances</a>
+        <a href="/faceRecognition">Facial Recognition</a>
+    </nav>
+</header>

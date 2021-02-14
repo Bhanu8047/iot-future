@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appliances: {{ appliance.name }}</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .btn{
+            all: unset;
+            border-radius: 7px;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .delete {
+            background-color: rgb(218, 84, 60);
+        }
+    </style>
+</head>
+<body>
+    {{>header}}
+    <div class="single-appliance">
+        <div class="info">
+            <h1>{{ appliance.name }}</h1>
+            <div class="state">
+                <form action="/changeState/{{appliance.id}}" method="POST">
+                    {{#if appliance.state}}
+                        <button style="all: unset;cursor:pointer;" type="submit"><p class="switchedOn">on</p></button>
+                    {{else}}
+                        <button style="all: unset;cursor:pointer;" type="submit"><p class="switchedOff">off</p><button
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+        <span class="row"><h3>Power: </h3> <em> {{ appliance.watt }} watt </em></span>
+        <span class="row"><h3>Units: </h3> <em> {{ appliance.unitsPerHour }} watt </em></span>
+        <span class="row" style="justify-content: flex-end;">
+            <form action="/deleteAppliance/{{appliance.id}}" method="POST">
+                <button title="delete" class="btn delete" type="submit">delete</button>
+            </form>
+        </span>
+    </div>
+</body>
+</html>
